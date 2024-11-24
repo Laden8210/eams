@@ -74,7 +74,11 @@ public class StudentAttendanceActivity extends AppCompatActivity implements Post
             tvVenue.setText(event.getVenue());
             tvDate.setText(event.getDateTimeEvent());
             tvCourse.setText(event.getProgram());
-
+            if (event.getProgramId().equals("All")){
+                tvCourse.setText("All Programs");
+            }else{
+                tvCourse.setText(event.getSemester()+" - " + event.getProgram());
+            }
         }
     }
 

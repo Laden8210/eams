@@ -42,8 +42,12 @@ public class EventAdapter extends RecyclerView.Adapter<EventAdapter.EventViewHol
         holder.tvTitleEvent.setText(event.getTitleEvent());
         holder.tvVenue.setText(event.getVenue()  + " - " + event.getDuration());
         holder.tvDate.setText(event.getDateTimeEvent());
-        holder.tvCourse.setText(event.getSemester()+" - " + event.getProgram());
 
+        if (event.getProgramId().equals("All")){
+            holder.tvCourse.setText("All Programs");
+        }else{
+            holder.tvCourse.setText(event.getSemester()+" - " + event.getProgram());
+        }
 
         holder.cardView.setOnClickListener(v -> {
             Intent intent = new Intent(context, StudentAttendanceActivity.class);

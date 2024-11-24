@@ -31,7 +31,7 @@ public class Event implements Parcelable {
     private int officerId;
 
     @SerializedName("program_idd")
-    private int programId;
+    private String programId;
 
     @SerializedName("time_in_morning")
     private String timeInMorning;
@@ -60,7 +60,7 @@ public class Event implements Parcelable {
     public Event() {
     }
 
-    public Event(int eventId, String titleEvent, String venue, String duration, String from, String to, int officerId, int programId, String timeInMorning, String timeOutMorning, String timeInAfternoon, String timeOutAfternoon, String amount, String semester, String dateTimeEvent, String program) {
+    public Event(int eventId, String titleEvent, String venue, String duration, String from, String to, int officerId, String programId, String timeInMorning, String timeOutMorning, String timeInAfternoon, String timeOutAfternoon, String amount, String semester, String dateTimeEvent, String program) {
         this.eventId = eventId;
         this.titleEvent = titleEvent;
         this.venue = venue;
@@ -87,7 +87,7 @@ public class Event implements Parcelable {
         from = in.readString();
         to = in.readString();
         officerId = in.readInt();
-        programId = in.readInt();
+        programId = in.readString();
         timeInMorning = in.readString();
         timeOutMorning = in.readString();
         timeInAfternoon = in.readString();
@@ -107,7 +107,7 @@ public class Event implements Parcelable {
         dest.writeString(from);
         dest.writeString(to);
         dest.writeInt(officerId);
-        dest.writeInt(programId);
+        dest.writeString(programId);
         dest.writeString(timeInMorning);
         dest.writeString(timeOutMorning);
         dest.writeString(timeInAfternoon);
@@ -191,11 +191,11 @@ public class Event implements Parcelable {
         this.officerId = officerId;
     }
 
-    public int getProgramId() {
+    public String getProgramId() {
         return programId;
     }
 
-    public void setProgramId(int programId) {
+    public void setProgramId(String programId) {
         this.programId = programId;
     }
 
